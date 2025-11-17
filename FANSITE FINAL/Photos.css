@@ -1,0 +1,205 @@
+:root {
+  --twitch-violet: #9146FF;
+  --twitch-noir: #000000;
+  --twitch-blanc: #F0F0FF;
+}
+
+body {
+  background: linear-gradient(120deg, #9146FF 0%, #F0F0FF 50%, #9146FF 100%);
+  color: var(--twitch-blanc);
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: linear-gradient(120deg, #9146FF 0%, #F0F0FF 50%, #9146FF 100%);
+  background-size: 200% 200%;
+  animation: twitchAccentBG 9s ease-in-out infinite;
+  opacity: 0.78;
+  pointer-events: none;
+}
+@keyframes twitchAccentBG {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 51%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* -- HEADER -- */
+.header {
+  width: 100vw;
+  background: var(--twitch-violet);
+  color: var(--twitch-blanc);
+  padding: 1.2rem 2rem 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.header-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.header-btn {
+  text-decoration: none;
+  color: var(--twitch-blanc);
+  background: var(--twitch-noir);
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.08rem;
+  border: none;
+  transition: background 0.18s, transform 0.18s;
+  box-shadow: 0 2px 8px #9146FF35;
+}
+.header-btn:hover {
+  background: #6f38c5;
+  color: var(--twitch-blanc);
+  transform: scale(1.09);
+}
+.header-fansite-title {
+  font-size: 2rem;
+  margin: 0 auto;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #F0F0FF;
+  text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-shadow: 0 0 9px #9146FF, 0 4px 21px #9146FF88;
+  animation: twitch-glow 1.4s infinite alternate cubic-bezier(.9,0,.1,1);
+}
+@keyframes twitch-glow {
+  0% { text-shadow: 0 0 19px #9146FF, 0 4px 21px #9146FF88; transform: scale(1) rotate(-2deg);}
+  40% { text-shadow: 0 0 25px #9146FF, 0 2px 36px #cdbbfa; transform: scale(1.04) rotate(2deg);}
+  60% { text-shadow: 0 0 32px #9146FF, 0 4px 21px #9146FF66; transform: scale(1.07) rotate(-1deg);}
+  100% { text-shadow: 0 0 19px #9146FF, 0 2px 36px #a699f8; transform: scale(1.02) rotate(1deg);}
+}
+
+/* -- Galerie -- */
+.gallery-section {
+  width: 97vw;
+  max-width: 900px;
+  margin: 3rem auto;
+  background: #5732a9cc;
+  border-radius: 13px;
+  box-shadow: 0 0 16px #9146FF33;
+  padding: 2rem 2vw;
+  color: #f0f0ff;
+}
+.gallery-section h2 {
+  font-size: 1.45rem;
+  font-weight: bold;
+  margin-bottom: 2.1rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+.gallery-item {
+  background: #391872fa;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px #9146FF22;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.17s;
+}
+.gallery-item:hover {
+  transform: scale(1.045);
+}
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 3px solid #9146FF66;
+  background: #F0F0FF;
+}
+.gallery-caption {
+  color: #e3d8ff;
+  font-size: 1.09rem;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0 0 6px #9146FF30;
+}
+
+/* -- NAVIGATION BTNS -- */
+.buttons-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2.8rem 0;
+}
+.action-btn {
+  background: var(--twitch-violet);
+  color: var(--twitch-blanc);
+  border: none;
+  font-size: 1.18rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px #9146FF22;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.14s;
+}
+.action-btn:hover {
+  background: #7c34de;
+  transform: scale(1.05);
+}
+
+/* -- FOOTER -- */
+.footer {
+  background: var(--twitch-violet);
+  color: var(--twitch-blanc);
+  width: 100%;
+  padding: 1.2rem 0;
+  margin-top: auto;
+  box-shadow: 0 -2px 16px #9146FF44;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-content {
+  width: 95vw;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.footer-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 700px) {
+  .gallery-section { max-width: 98vw; padding: 1rem 1vw; margin: 1.2rem auto; }
+  .gallery-section h2 { font-size: 1.17rem; }
+  .gallery-grid { gap: 1.1rem; }
+  .gallery-item img { height: 112px; }
+  .gallery-caption { font-size: 0.93rem; padding: 0.6rem; }
+  .buttons-section { flex-direction: column; gap: 1.1rem; margin: 1.3rem 0;}
+  .action-btn { width: 80vw; text-align: center; padding: 0.8rem 0; font-size: 0.98rem;}
+}
+@media (max-width: 420px) {
+  .gallery-item img { height: 69px; }
+  .footer-title { font-size: 0.9rem;}
+  .header-fansite-title { font-size: 0.7rem;}
+}
